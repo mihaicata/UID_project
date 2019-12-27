@@ -1,0 +1,72 @@
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card bg-dark my-5">
+              <div class="card-body">
+                <h2 class="card-title text-center text-white py-3">Univeristy App</h2>
+                <ul class="text-center list-inline py-3">
+                  <li class="list-inline-item"><a routerLink="/" class="btn btn-info">View courses</a></li>
+                  <li class="list-inline-item"><a routerLink="/" class="btn btn-info">Post opportunity announcements</a></li>
+                  <li class="list-inline-item"><a routerLink="/" class="btn btn-info">Email</a></li>
+                  <li class="list-inline-item"><a routerLink="/" class="btn btn-info">Post lecture/announcement</a></li>
+                </ul>
+    
+                <div class="card bg-dark my-5" id="div1">
+                    <div class="card-body" id="form">
+                        <div class="div1">
+                      <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+                        <div class="form-group">
+                          <label for="username">Title</label>
+                          <input type="text" [(ngModel)]="title" 
+                            class="form-control" id="username" name="username" placeholder="Enter the title"
+                            >
+                        </div>
+                        
+                        <div class="form-group">
+                          <label for="password">Body</label>
+                          <input type="text" [(ngModel)]="body" 
+                            class="form-control" id="message" name="password" placeholder="Enter your message"
+                            >
+                        </div>
+                        <!-- <label>Choose file:</label>
+                        <button type="file" class="btn btn-info" id="button" (change)="handleFileInput($event.target.files)">Choose</button> -->
+
+                        <div class="form-group">
+                            <label for="file">Choose File</label>
+                            <input type="file"
+                                   id="file"
+                                   (change)="handleFileInput($event.target.files)">
+                        </div>
+
+                        <button type="file" class="btn btn-info" id="button" (click)="showTable()">Submit</button> 
+
+                      </form>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div id="div2">
+                    <table ng-table="myTable" class="table table-bordered table-striped table-light">
+                        <thead class="thead-light">
+                            <tr>
+                              <th scope="col">Past announcements</th>
+                              
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let message of messages">
+                              <td>{{ message }}</td>
+                            </tr>
+                          </tbody>
+                    </table>
+
+                  </div> 
+    
+              </div>
+            </div>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    <body>
