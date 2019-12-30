@@ -37,6 +37,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { HomepageSmartComponent } from './containers/homepage-smart/homepage-smart.component';
 import { StudentPageComponent } from './components/student-page/student-page.component';
 import { StudentPageSmartComponent } from './containers/student-page-smart/student-page-smart.component';
+import { EnrollmentPageComponent } from './components/enrollment-page/enrollment-page.component';
+import { EnrollmentPageSmartComponent } from './containers/enrollment-page-smart/enrollment-page-smart.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { StudentPageSmartComponent } from './containers/student-page-smart/stude
     HomepageComponent,
     HomepageSmartComponent,
     StudentPageComponent,
-    StudentPageSmartComponent
+    StudentPageSmartComponent,
+    EnrollmentPageComponent,
+    EnrollmentPageSmartComponent
   ],
   imports: [
     HttpClientModule,
