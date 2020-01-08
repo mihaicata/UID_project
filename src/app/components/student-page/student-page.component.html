@@ -7,3 +7,124 @@
   <button mat-button (click)="seeAnnouncements()" routerLinkActive="active">Announcements</button>
   <button mat-button (click)="seeChat()" routerLinkActive="active">Chat</button>
 </mat-toolbar>
+
+  <div [hidden]="!viewAnnouncements">
+    <mat-grid-list cols="1" rowHeight="100px" class="announcement-display">
+      <div *ngFor="let element of announcements">
+        <mat-card class = "announcement">
+          <mat-card-header class = "announcement-header">
+            <mat-card-title>{{element.title}}</mat-card-title>
+            <p class="likes">{{element.likes}}Likes</p>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{element.shortDescription}}
+            </p>
+          </mat-card-content>
+          <mat-card-actions  class = "announcement-bottom">
+            <button mat-icon-button (click)="like(element)">
+              <mat-icon>thumb_up</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+
+      </div>
+    </mat-grid-list>
+  </div>
+
+<div [hidden]="!viewCourses">
+  <div class="scrolling-wrapper">
+    <div *ngFor="let element of courses">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{element.title}}</mat-card-title>
+          <mat-card-subtitle>{{element.mainProfessor}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="element.image" alt="Photo of a Shiba Inu" (click)="openCourse(element)">
+        <mat-card-content>
+          <mat-card-subtitle>{{element.assistantProfessor}}</mat-card-subtitle>
+          <button mat-raised-button color="primary" (click)="seeReview(element)">See Reviews</button>
+          <button mat-raised-button color="primary" (click)="leaveReview(element)">Leave Reviews</button>
+        </mat-card-content>
+        <mat-card-actions>
+          <mat-progress-bar mode="determinate" [value]="element.progress"></mat-progress-bar>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<div [hidden]="!seeFormReview">
+  <form [formGroup]="form">
+  <mat-card class="review">
+    <mat-form-field>
+      <mat-select placeholder="Lecture" formControlName="lectureName">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let name of selected" [value]="name">{{name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Teacher Grade" formControlName="teacherGrade">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let teacherGrade of grades" [value]="teacherGrade">{{teacherGrade}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Teacher Review" formControlName="teacherReview"></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Lecture Grade" formControlName="lectureGrade">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let lectureGrade of grades" [value]="lectureGrade">{{lectureGrade}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Lecture Review" formControlName="lectureReview"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="submitReview()">Submit Review</button>
+
+  </mat-card>
+  </form>
+</div>
+
+<div [hidden]="!seeReviews">
+  <mat-card class="table">
+    <mat-table [dataSource]="activeCourse.reviews" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="lectureTitle">
+        <th mat-header-cell *matHeaderCellDef> Lecture Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="professorMark">
+        <th mat-header-cell *matHeaderCellDef> Professor Mark</th>
+        <td mat-cell *matCellDef="let element"> {{element.professorMark}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="professorReview">
+        <th mat-header-cell *matHeaderCellDef> Professor Review </th>
+        <td mat-cell *matCellDef="let element"> {{element.professorReview}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="courseMark">
+        <th mat-header-cell *matHeaderCellDef> Course Mark </th>
+        <td mat-cell *matCellDef="let element"> {{element.courseMark}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="courseReview">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let element"> {{element.courseReview}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
+
+  </mat-card>
+
+</div>
