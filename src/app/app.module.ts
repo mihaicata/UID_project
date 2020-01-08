@@ -39,6 +39,9 @@ import { StudentPageComponent } from './components/student-page/student-page.com
 import { StudentPageSmartComponent } from './containers/student-page-smart/student-page-smart.component';
 import { EnrollmentPageComponent } from './components/enrollment-page/enrollment-page.component';
 import { EnrollmentPageSmartComponent } from './containers/enrollment-page-smart/enrollment-page-smart.component';
+import { StudentGradesSmartComponent } from './containers/student-grades-smart/student-grades-smart.component';
+import { StudentGradesPageComponent } from './components/student-grades-page/student-grades-page.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { EnrollmentPageSmartComponent } from './containers/enrollment-page-smart
     StudentPageComponent,
     StudentPageSmartComponent,
     EnrollmentPageComponent,
-    EnrollmentPageSmartComponent
+    EnrollmentPageSmartComponent,
+    StudentGradesSmartComponent,
+    StudentGradesPageComponent,
+    TableComponent
   ],
   imports: [
     HttpClientModule,
