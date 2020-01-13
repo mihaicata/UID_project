@@ -1,0 +1,50 @@
+.activity-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+}
+
+.student-info {
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+}
+
+.activity {
+  width:50%;
+}
+
+.student-material {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.download_file{
+
+}
+
+.post-grade {
+  width: 50%;
+  padding: 32px 16px 16px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.grade-input{
+  width:30%;
+  display: flex;
+  border-radius: 8px;
+}
+

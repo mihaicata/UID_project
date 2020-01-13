@@ -42,6 +42,20 @@ import { EnrollmentPageSmartComponent } from './containers/enrollment-page-smart
 import { StudentGradesSmartComponent } from './containers/student-grades-smart/student-grades-smart.component';
 import { StudentGradesPageComponent } from './components/student-grades-page/student-grades-page.component';
 import { TableComponent } from './components/table/table.component';
+import { TeacherCourseActivitiesSmartComponent } from './containers/teacher-course-activities-smart/teacher-course-activities-smart.component';
+import { TeacherCourseActivitiesComponent } from './components/teacher-course-activities/teacher-course-activities.component';
+import { ActivityGradedSmartComponent } from './containers/activity-graded-smart/activity-graded-smart.component';
+import { ActivityGradedPageComponent } from './components/activity-graded-page/activity-graded-page.component';
+import { AssignmentsSmartComponent } from './containers/assignments-smart/assignments-smart.component';
+import { QuizzesSmartComponent } from './containers/quizzes-smart/quizzes-smart.component';
+import { ProjectsSmartComponent } from './containers/projects-smart/projects-smart.component';
+import { ExamsSmartComponent } from './containers/exams-smart/exams-smart.component';
+import { AssignmentsPageComponent } from './components/assignments-page/assignments-page.component';
+import { QuizzesPageComponent } from './components/quizzes-page/quizzes-page.component';
+import { ProjectsPageComponent } from './components/projects-page/projects-page.component';
+import { ExamsPageComponent } from './components/exams-page/exams-page.component';
+import { GradedActivitiesComponent } from './components/graded-activities/graded-activities.component';
+import { StudentsActivitiesTableComponent } from './components/students-activities-table/students-activities-table.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +70,21 @@ import { TableComponent } from './components/table/table.component';
     EnrollmentPageSmartComponent,
     StudentGradesSmartComponent,
     StudentGradesPageComponent,
-    TableComponent
+    TableComponent,
+    TeacherCourseActivitiesSmartComponent,
+    TeacherCourseActivitiesComponent,
+    ActivityGradedSmartComponent,
+    ActivityGradedPageComponent,
+    AssignmentsSmartComponent,
+    QuizzesSmartComponent,
+    ProjectsSmartComponent,
+    ExamsSmartComponent,
+    AssignmentsPageComponent,
+    QuizzesPageComponent,
+    ProjectsPageComponent,
+    ExamsPageComponent,
+    GradedActivitiesComponent,
+    StudentsActivitiesTableComponent
   ],
   imports: [
     HttpClientModule,

@@ -1,0 +1,42 @@
+<mat-card>
+  <div class="title">
+    {{courseName}} - {{titleActivity}}
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="activity-content">
+
+    <div class="student-info">
+      {{studentName}}  {{studentGroup}}
+    </div>
+
+    <div class="student-material">
+      <mat-card class="activity">
+        <div>
+          {{activityTitle}}
+        </div>
+      </mat-card>
+    <button class="download_file" mat-icon-button>
+      <mat-icon>cloud_download</mat-icon></button>
+
+    </div>
+
+
+    <div class="post-grade">
+      <mat-form-field class="grade-input" appearance="outline">
+        <input matInput [formControl]="control">
+        <mat-error *ngIf = "control.hasError('required')">
+          You must enter a grade
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button (click)="onAssignGrade()">
+        Assign Grade
+      </button>
+
+    </div>
+
+
+  </div>
+</mat-card>

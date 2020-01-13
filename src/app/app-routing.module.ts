@@ -4,18 +4,57 @@ import {LoginPageSmartComponent} from './containers/login-page-smart/login-page-
 import {HomepageSmartComponent} from './containers/homepage-smart/homepage-smart.component';
 import {StudentPageSmartComponent} from './containers/student-page-smart/student-page-smart.component';
 import {EnrollmentPageSmartComponent} from './containers/enrollment-page-smart/enrollment-page-smart.component';
+import {ActivityGradedSmartComponent} from './containers/activity-graded-smart/activity-graded-smart.component';
+import {TeacherCourseActivitiesComponent} from './components/teacher-course-activities/teacher-course-activities.component';
+import {TeacherCourseActivitiesSmartComponent} from './containers/teacher-course-activities-smart/teacher-course-activities-smart.component';
+import {AssignmentsSmartComponent} from './containers/assignments-smart/assignments-smart.component';
+import {QuizzesSmartComponent} from './containers/quizzes-smart/quizzes-smart.component';
+import {ProjectsSmartComponent} from './containers/projects-smart/projects-smart.component';
+import {ExamsSmartComponent} from './containers/exams-smart/exams-smart.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomepageSmartComponent},
   {path: 'login', component: LoginPageSmartComponent},
-  {path: 'Student', component: StudentPageSmartComponent,
+  {path: 'student', component: StudentPageSmartComponent,
     children: [
       {
         path: 'enroll',
-        component: EnrollmentPageSmartComponent
+        component: ActivityGradedSmartComponent
+        // component: EnrollmentPageSmartComponent
       }
-    ]}
+    ]},
+  {path: 'teacher', component: TeacherCourseActivitiesSmartComponent,
+  children: [
+    {
+      path: '', redirectTo: 'assignments', pathMatch: 'full'
+    },
+    {
+      path: 'assignments', component: AssignmentsSmartComponent
+    },
+    {
+      path: 'quizzes', component: QuizzesSmartComponent
+    },
+    {
+      path: 'projects', component: ProjectsSmartComponent
+    },
+    {
+      path: 'exams', component: ExamsSmartComponent
+    },
+    {
+      path: 'assignments/students/:idStudent', component: ActivityGradedSmartComponent
+    },
+    {
+      path: 'quizzes/students/:idStudent', component: ActivityGradedSmartComponent
+    },
+    {
+      path: 'projects/students/:idStudent', component: ActivityGradedSmartComponent
+    },
+    {
+      path: 'exams/students/:idStudent', component: ActivityGradedSmartComponent
+    }
+
+  ]}
 ];
 
 @NgModule({
