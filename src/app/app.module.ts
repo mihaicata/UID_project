@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import {
   MatAutocompleteModule,
   MatBadgeModule,
@@ -22,10 +23,10 @@ import {
   MatIconModule,
   MatInputModule,
   MatListModule, MatMenuModule,
-  MatNativeDateModule,
+  MatNativeDateModule, MatProgressBarModule,
   MatProgressSpinnerModule,
   MatSelectModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSnackBarModule,
   MatStepperModule,
   MatTableModule, MatTabsModule,
   MatToolbarModule, MatTreeModule
@@ -37,6 +38,10 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { HomepageSmartComponent } from './containers/homepage-smart/homepage-smart.component';
 import { StudentPageComponent } from './components/student-page/student-page.component';
 import { StudentPageSmartComponent } from './containers/student-page-smart/student-page-smart.component';
+import { SecretaryPageComponent } from './components/secretary-page/secretary-page.component';
+import { SecretaryPageSmartComponent } from './containers/secretary-page-smart/secretary-page-smart.component';
+import { TeacherPageComponent } from './components/teacher-page/teacher-page.component';
+import { TeacherPageSmartComponent } from './containers/teacher-page-smart/teacher-page-smart.component';
 import { EnrollmentPageComponent } from './components/enrollment-page/enrollment-page.component';
 import { EnrollmentPageSmartComponent } from './containers/enrollment-page-smart/enrollment-page-smart.component';
 import { StudentGradesSmartComponent } from './containers/student-grades-smart/student-grades-smart.component';
@@ -66,6 +71,11 @@ import { StudentsActivitiesTableComponent } from './components/students-activiti
     HomepageSmartComponent,
     StudentPageComponent,
     StudentPageSmartComponent,
+    SecretaryPageComponent,
+    SecretaryPageSmartComponent,
+    TeacherPageComponent,
+    TeacherPageSmartComponent,
+    StudentPageSmartComponent,
     EnrollmentPageComponent,
     EnrollmentPageSmartComponent,
     StudentGradesSmartComponent,
@@ -87,6 +97,7 @@ import { StudentsActivitiesTableComponent } from './components/students-activiti
     StudentsActivitiesTableComponent
   ],
   imports: [
+    FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserModule,
@@ -96,7 +107,8 @@ import { StudentsActivitiesTableComponent } from './components/students-activiti
     MatDividerModule, MatIconModule, MatGridListModule, MatListModule, MatSidenavModule, MatDialogModule,
     MatToolbarModule, MatDatepickerModule, MatSelectModule, FormsModule,
     MatNativeDateModule, MatExpansionModule, MatStepperModule, MatChipsModule, MatBadgeModule,
-    MatAutocompleteModule, MatProgressSpinnerModule, MatMenuModule, MatTabsModule, MatTreeModule, RouterModule,
+    MatAutocompleteModule, MatProgressSpinnerModule, MatMenuModule, MatTabsModule, MatTreeModule, RouterModule, MatSnackBarModule,
+    MDBBootstrapModule.forRoot(), MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

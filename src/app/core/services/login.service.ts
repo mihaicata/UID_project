@@ -11,8 +11,12 @@ export class LoginService {
   loginUser(username, password): string {
     if (username === 'student' && password === 'password') {
       return 'Student';
+    } else if (username === 'secretary' && password === 'password') {
+      return 'Secretary';
+    } else if (username === 'teacher' && password === 'password') {
+      return 'Teacher';
     } else {
-      return 'Nothing';
+      return null;
     }
   }
 }

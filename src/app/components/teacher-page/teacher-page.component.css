@@ -1,3 +1,52 @@
+/* label{
+    color:white;
+}
+#form{
+    width:300px;
+}
+#message{
+    width:258px;
+    height:130px;
+}
+#div1{
+    display: inline-block;
+    margin-left:140px;
+}
+#div2{
+    display: inline-block;
+    margin:20px;
+    padding:0;
+    display:block;
+    float:left;
+    position:relative;
+} */
+/*
+p{
+    color:white;
+}
+#p1{
+    display: inline-block;
+}
+select{
+    display: inline-block;
+    margin-left:10px;
+}
+button{
+    margin-left:100px;
+}
+html,body{
+    background-color: #343A40;
+    margin: 0;
+    width: 100%;
+
+}
+container{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+*/
 /* styles.css */
 
 html, body, app-root {
@@ -104,7 +153,7 @@ mat-icon {
 }
 
 .example-header-image {
-  background-image: url('https://www.google.com/search?q=background+image+for+website&authuser=1&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiW3cue0oPnAhVDw8QBHSDjC58Q_AUoAXoECBAQAw&biw=1455&bih=688#imgrc=jAmIXCrFRmZp9M:');
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
 
@@ -137,6 +186,7 @@ mat-icon {
   transform: translate(-50%, -50%);
   padding: 50px;
   display:flex;
+  margin-top:200px;
 }
 
 .review > mat-form-field {
@@ -156,41 +206,60 @@ mat-icon {
   display:flex;
   justify-content: center;
 }
+#div1{
+  position: relative;
+}
+#div2{
+  position: relative;
+}
+.review{
+  top:100px;
 
-.chat-friends{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: white;
 }
 
-.chat-list{
-  display: inline-block;
-  flex-direction: column;
-  position: absolute;
-  bottom: 0%;
-  left: 73.4%;
-  margin-right: -50%;
-  background-color: white;
-  overflow: auto;
+#btn{
+  position: relative;
+
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+
+  background-color: #e8f0fc;
+  color: #000000;
+
+  transition: background-color .3s;
+}
+#buton{
+  margin-top:10px;
+}
+#div3{
+  margin-left:50px;
 }
 
-.chat-messages{
-  height: 200px;
-  max-height: 200px;
-  overflow-y: scroll;
-}
-
-#myMessagesList{
-  color: red;
-}
-
-.chat-list > h4{
-  display: inline-flex;
-}
-
-.lectures {
+/*----------------------------PAUL---------------*/
+.emails {
   height:25px;
+  width: 100%;
   background: rgba(255,255,255,0.7);
   display:flex;
+}
+
+mat-grid-tile {
+  background: lightblue;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
 }

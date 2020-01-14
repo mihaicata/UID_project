@@ -3,6 +3,8 @@ import {Routes, RouterModule} from '@angular/router';
 import {LoginPageSmartComponent} from './containers/login-page-smart/login-page-smart.component';
 import {HomepageSmartComponent} from './containers/homepage-smart/homepage-smart.component';
 import {StudentPageSmartComponent} from './containers/student-page-smart/student-page-smart.component';
+import {SecretaryPageSmartComponent} from './containers/secretary-page-smart/secretary-page-smart.component';
+import {TeacherPageSmartComponent} from './containers/teacher-page-smart/teacher-page-smart.component';
 import {EnrollmentPageSmartComponent} from './containers/enrollment-page-smart/enrollment-page-smart.component';
 import {ActivityGradedSmartComponent} from './containers/activity-graded-smart/activity-graded-smart.component';
 import {TeacherCourseActivitiesSmartComponent} from './containers/teacher-course-activities-smart/teacher-course-activities-smart.component';
@@ -16,7 +18,8 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomepageSmartComponent},
   {path: 'login', component: LoginPageSmartComponent},
-  {path: 'student', component: StudentPageSmartComponent,
+  {path: 'Secretary', component: SecretaryPageSmartComponent},
+  {path: 'Student', component: StudentPageSmartComponent,
     children: [
       {
         path: 'enroll',
@@ -27,8 +30,10 @@ const routes: Routes = [
         component: StudentGradesSmartComponent
       }
 
-    ]},
-  {path: 'teacher', component: TeacherCourseActivitiesSmartComponent,
+    ]
+  },
+  {path: 'Teacher', component: TeacherPageSmartComponent},
+  {path: 'Teacher/activities', component: TeacherCourseActivitiesSmartComponent,
   children: [
     {
       path: '', redirectTo: 'assignments', pathMatch: 'full'

@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Grade} from '../../core/models/grade';
 import {Student} from '../../student';
 import {QuizzesService} from '../../core/services/quizzes.service';
+import {ActivityStudent} from '../../core/models/activity-student';
+import {Activity} from '../../core/models/activity';
 
 @Component({
   selector: 'app-quizzes-smart',
@@ -36,18 +38,18 @@ export class QuizzesSmartComponent implements OnInit {
 
     this.quizzesService.getStudentsForQuizzes();
     const assignments = this.quizzesService.quizzesStudentsValue;
-    assignments.filter((student) => student.id === id
-    )
-      .map((student: Student) => {
-        const gradedStudent = new Student();
-        gradedStudent.id = student.id;
-        gradedStudent.firstname = student.firstname;
-        gradedStudent.lastname = student.lastname;
-        gradedStudent.group = student.group;
-        gradedStudent.grade = gradeObject;
-        Object.assign(student, gradedStudent);
-        return student;
-      });
-
+    assignments.filter((activityStudent: ActivityStudent) => {
+      console.log(activityStudent);
+      const newActivity = new Activity();
+      newActivity.grade = gradeObject;
+      newActivity.name = activityStudent.activity.name;
+      newActivity.fileUrl = activityStudent.activity.fileUrl;
+      const gradedStudent = {
+        ...activityStudent,
+        activity: newActivity
+      };
+      Object.assign(activityStudent, gradedStudent);
+      return activityStudent;
+    });
   }
 }
