@@ -5,6 +5,8 @@
   <span class="spacer"></span>
   <button mat-button (click)="uploadLectures()" routerLinkActive="active">Upload Lectures</button>
   <button mat-button (click)="seeEmails()" routerLinkActive="active">View Emails</button>
+  <button mat-button (click)="seeAssignments()" routerLinkActive="active">View Activities</button>
+
 </mat-toolbar>
 
 
@@ -80,3 +82,7 @@
   </mat-grid-list>
 
 </div>
+
+<app-teacher-course-activities-smart *ngIf="viewAssignments">
+
+</app-teacher-course-activities-smart>

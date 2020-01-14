@@ -18,6 +18,7 @@ export class TeacherPageComponent implements OnInit {
   viewUploadLectures: boolean;
   viewEmails: boolean;
   viewComposeEmail: boolean;
+  viewAssignments: boolean;
   emails = [{name: 'Potolea Rodica', topic: 'Department meeting at 16'}, {name: 'Fried Johanna', topic: 'Student complaints'}];
   private selected: ({ name: string; topic: string } | { name: string; topic: string })[];
 
@@ -71,5 +72,11 @@ export class TeacherPageComponent implements OnInit {
   }
 
   sendEmail() {
+  }
+  seeAssignments() {
+    this.viewUploadLectures = false;
+    this.viewEmails = false;
+    this.viewAssignments = true;
+    console.log(this.viewAssignments)
   }
 }

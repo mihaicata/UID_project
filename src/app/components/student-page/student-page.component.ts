@@ -6,7 +6,6 @@ import {CourseService} from '../../core/services/course.service';
 import {Course} from '../../core/models/course';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Review} from '../../core/models/review';
-import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-student-page',
   templateUrl: './student-page.component.html',
