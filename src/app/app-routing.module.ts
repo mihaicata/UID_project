@@ -1,17 +1,21 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {SecretaryViewStudentsComponent} from './secretary-view-students/secretary-view-students.component'
-import {TeacherUploadLecturesComponent} from './teacher-upload-lectures/teacher-upload-lectures.component'
-
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {LoginPageSmartComponent} from './containers/login-page-smart/login-page-smart.component';
+import {HomepageSmartComponent} from './containers/homepage-smart/homepage-smart.component';
+import {StudentPageSmartComponent} from './containers/student-page-smart/student-page-smart.component';
+import {SecretaryPageSmartComponent} from './containers/secretary-page-smart/secretary-page-smart.component';
 
 const routes: Routes = [
-  {path:'secretaryViewStudents', component:SecretaryViewStudentsComponent},
-  {path:'teacherUploadLectures', component:TeacherUploadLecturesComponent}
-
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomepageSmartComponent},
+  {path: 'login', component: LoginPageSmartComponent},
+  {path: 'Student', component: StudentPageSmartComponent},
+  {path: 'Secretary', component: SecretaryPageSmartComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

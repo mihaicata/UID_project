@@ -1,0 +1,39 @@
+<form [formGroup]="form" (ngSubmit)="loginSubmit()">
+  <img class="fullBg" src="https://wallpaperaccess.com/full/1567665.png" alt="Image">
+
+  <mat-toolbar color="primary">
+    <h1><span class="light">STUD</span>APP</h1>
+    <span class="spacer"></span>
+    <a mat-button [routerLink]="['/home']" routerLinkActive="active">HOME</a>
+    <a mat-button [routerLink]="['/login']" routerLinkActive="active">LOGIN</a>
+  </mat-toolbar>
+
+  <mat-card>
+
+    <mat-card-content>
+      <mat-card-header>
+        <mat-card-title>LOGIN</mat-card-title>
+      </mat-card-header>
+      <div class="login-container">
+        <p>
+          <mat-form-field hintLabel="Minimum 4 characters">
+            <input matInput #input type="text" minlength="4" placeholder="Username" formControlName="username">
+            <mat-hint align="end">{{input.value?.length || 0}}/4</mat-hint>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password">
+          </mat-form-field>
+        </p>
+
+        <p>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Login</button>
+        </p>
+
+      </div>
+    </mat-card-content>
+
+  </mat-card>
+</form>

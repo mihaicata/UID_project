@@ -1,0 +1,35 @@
+  <div [hidden]="!viewEmails">
+  <mat-grid-list cols="2" rowHeight="2:1" gutter-size = "0px">
+  <mat-grid-tile>
+   <div>
+   <button mat-raised-button color="primary" (click)="composeEmail()">Compose</button>
+   <mat-card class = "emails" *ngFor="let element of selected">
+          <p>{{element.name}}</p>
+		  <br/>
+          <p>{{element.topic}}</p>
+	</mat-card>
+   </div>
+  </mat-grid-tile>
+  <mat-grid-tile>
+ <div [hidden]="!viewComposeEmail">
+  <mat-card>
+  <form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="To">
+  </mat-form-field>
+	<mat-form-field class="example-full-width">
+    <input matInput placeholder="Topic">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <textarea matInput placeholder="Message"></textarea>
+  </mat-form-field>
+  
+  <button mat-raised-button color="primary" (click)="sendEmail()">Send</button>
+	</form>
+	</mat-card>
+	</div>
+
+  </mat-grid-tile>
+</mat-grid-list>
+	
+</div>
