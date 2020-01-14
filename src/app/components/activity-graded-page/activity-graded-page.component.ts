@@ -9,19 +9,19 @@ import {FormControl, Validators} from '@angular/forms';
 export class ActivityGradedPageComponent implements OnInit {
 
 
-  @Input() titleActivity = 'Assignment';
-  @Input() courseName = 'User Interface Design';
-  @Input() activityTitle = 'Assignment1';
+   titleActivity: string;
+   courseName: string;
+   activityTitle: string;
 
-  @Input() studentName = 'Andrei Brasoveanu';
-  @Input() studentGroup = '30443'
+   studentName: string;
+   studentGroup: string;
 
   control: FormControl;
   constructor() { }
 
   ngOnInit() {
 
-    this.control = new FormControl('', Validators.required);
+    this.control = new FormControl('' , [Validators.required, Validators.max(10), Validators.min(0)]);
   }
 
   onAssignGrade() {

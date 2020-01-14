@@ -11,6 +11,10 @@ export class AssignmentsPageComponent implements OnInit {
 
   dataSource: Student[];
   @Output() view = new EventEmitter<number>();
+  @Output() postGrade = new EventEmitter<{id: number, grade: number}>();
+
+
+
   constructor(private studentsActivitiesService: StudentsActivitiesService) { }
 
   ngOnInit() {
@@ -19,5 +23,9 @@ export class AssignmentsPageComponent implements OnInit {
 
   onView(idStudent: number) {
     this.view.emit(idStudent);
+  }
+
+  onPostGrade({id, grade}: {id: number, grade: number}) {
+    this.postGrade.emit({id,  grade});
   }
 }

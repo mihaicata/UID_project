@@ -1,3 +1,5 @@
+import {Grade} from './core/models/grade';
+
 export class Student {
     id?: number;
     group?: number;
@@ -6,4 +8,9 @@ export class Student {
     faculty?: string;
     university?: string;
     country?: string;
+    grade?: Grade;
+    //assignments: Assignment[];
+    //quizzes: Quizz[];
+    //projects: Project[];
+    //exams: Exam[]
 }

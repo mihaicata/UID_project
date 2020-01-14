@@ -14,6 +14,8 @@ export class GradedActivitiesComponent implements OnInit {
   @Input() buttonName: string;
 
   @Output() view = new EventEmitter<number>();
+  @Output() postGrade = new EventEmitter<{id: number, grade: number}>();
+
   constructor() { }
 
   ngOnInit() {
@@ -21,5 +23,8 @@ export class GradedActivitiesComponent implements OnInit {
 
   onView(idStudent: number) {
     this.view.emit(idStudent);
+  }
+  onPostGrade({id, grade}) {
+    this.postGrade.emit({id,  grade});
   }
 }

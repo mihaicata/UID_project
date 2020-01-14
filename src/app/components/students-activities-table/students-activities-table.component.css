@@ -8,3 +8,9 @@
   //font-family: SansSerif;
   font-weight: 500;
 }
+
+.input-grade {
+  height: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 8px;
+}

@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 import {Student} from '../../student';
 
 @Injectable({
   providedIn: 'root'
 })
-export class StudentsActivitiesService {
+export class QuizzesService {
 
-
-
+  private quizzesStudents$: BehaviorSubject<Student[]> = new BehaviorSubject<Student[]>(null);
   constructor() { }
 
-  get studentsForActivities(): Student[] {
+  getStudentsForQuizzes() {
 
-    return [
+    const quizzesStudents = [
       {
         id: 0,
         firstname: 'Paul',
@@ -81,5 +81,11 @@ export class StudentsActivitiesService {
       }
 
     ];
+    this.quizzesStudents$.next(quizzesStudents);
+
+  }
+
+  get quizzesStudentsValue(): Student[] {
+    return this.quizzesStudents$.value;
   }
 }

@@ -7,6 +7,6 @@
 
 
   <div>
-    <app-students-activities-table [dataSource]="dataSource" [buttonName]="buttonName" (view)="onView($event)"></app-students-activities-table>
+    <app-students-activities-table [dataSource]="dataSource" [buttonName]="buttonName" (view)="onView($event)" (postGrade)="onPostGrade($event)"></app-students-activities-table>
   </div>
 </mat-card>

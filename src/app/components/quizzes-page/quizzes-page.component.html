@@ -1,1 +1,7 @@
-<app-graded-activities [title]="'Quizzes'" [dataSource]="dataSource" [buttonName]="'View Quizzes'" (view)="onView($event)"></app-graded-activities>
+<app-graded-activities [title]="'Quizzes'"
+                       [dataSource]="dataSource"
+                       [buttonName]="'View Quizzes'"
+                       (view)="onView($event)"
+                       (postGrade)="onPostGrade($event)"
+
+></app-graded-activities>
