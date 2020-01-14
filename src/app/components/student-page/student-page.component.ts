@@ -16,6 +16,7 @@ import {Review} from '../../core/models/review';
 export class StudentPageComponent implements OnInit {
   viewAnnouncements: boolean;
   viewCourses: boolean;
+  viewCourseDetails: boolean;
   seeFormReview: boolean;
   announcements: Announcement[];
   courses: Course[];
@@ -31,6 +32,7 @@ export class StudentPageComponent implements OnInit {
               private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+	this.viewCourseDetails = false;
     this.viewAnnouncements = false;
     this.viewCourses = false;
     this.seeFormReview = false;
@@ -53,6 +55,7 @@ export class StudentPageComponent implements OnInit {
     this.viewAnnouncements = false;
     this.seeFormReview = false;
     this.seeReviews = false;
+	this.viewCourseDetails = false;
   }
 
   seeAnnouncements() {
@@ -60,12 +63,13 @@ export class StudentPageComponent implements OnInit {
     this.viewCourses = false;
     this.seeFormReview = false;
     this.seeReviews = false;
+	this.viewCourseDetails = false;
   }
 
   seeChat() {
     console.log('Chat');
   }
-
+  
   openSnackBar(message: string) {
     this.snackBar.open(message, 'Close', {
       duration: 2000
@@ -91,6 +95,13 @@ export class StudentPageComponent implements OnInit {
   }
 
   openCourse(element: Course) {
+	this.selected = element.lectures;
+	this.viewCourseDetails = this.viewCourseDetails !== true;
+	this.viewCourses = false;
+    this.seeFormReview = false;
+    this.seeReviews = false;
+	this.viewAnnouncements = false;
+
     console.log(element.title);
   }
 
@@ -101,6 +112,7 @@ export class StudentPageComponent implements OnInit {
     this.viewCourses = false;
     this.viewAnnouncements = false;
     this.seeFormReview = false;
+	this.viewCourseDetails = false;
   }
 
   leaveReview(element: Course) {
@@ -109,6 +121,7 @@ export class StudentPageComponent implements OnInit {
     this.viewAnnouncements = false;
     this.viewCourses = false;
     this.seeReviews = false;
+	this.viewCourseDetails = false;
   }
 
   submitReview() {
@@ -121,6 +134,7 @@ export class StudentPageComponent implements OnInit {
     this.openSnackBar('CONGRATS FOR LEAVING A REVIEW!!!');
     this.seeFormReview = false;
     this.viewCourses = true;
+	this.viewCourseDetails = false;
 
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.courses.length; i++) {
