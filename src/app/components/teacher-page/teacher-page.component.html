@@ -1,0 +1,83 @@
+<img class="fullBg" src="https://wallpaperaccess.com/full/1567665.png" alt="Image">
+
+<mat-toolbar color="primary">
+  <h1><span class="light">STUD</span>APP</h1>
+  <span class="spacer"></span>
+  <button mat-button (click)="uploadLectures()" routerLinkActive="active">Upload Lectures</button>
+  <button mat-button (click)="seeEmails()" routerLinkActive="active">View Emails</button>
+  <button mat-button (click)="seeChat()" routerLinkActive="active">Chat</button>
+</mat-toolbar>
+
+
+<div [hidden]="!viewUploadLectures">
+  <mat-card class="review">
+
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Title:" [(ngModel)]="title">
+      </mat-form-field>
+
+      <mat-form-field style="width: 300px;">
+        <textarea matInput placeholder="Body:"></textarea>
+      </mat-form-field>
+
+      <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+      <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+      <button type="button" id="buton" mat-raised-button (click)="showTable()">Submit</button>
+    </div>
+
+    <div id="div3">
+
+      <table mat-table [dataSource]="messages" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="announcements">
+          <th mat-header-cell *matHeaderCellDef>File Name</th>
+          <td mat-cell *matCellDef="let message"> {{message}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+
+    </div>
+  </mat-card>
+</div>
+
+
+<!--------------------------------------------PAUl----------------------------------------------------------->
+<div [hidden]="!viewEmails">
+  <mat-grid-list cols="2" rowHeight="2:1" gutter-size = "0px">
+    <mat-grid-tile>
+      <div>
+        <button mat-raised-button color="primary" (click)="composeEmail()">Compose</button>
+        <mat-card class = "emails" *ngFor="let element of selected">
+          <p>{{element.name}}</p>
+          <br/>
+          <p>{{element.topic}}</p>
+        </mat-card>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div [hidden]="!viewComposeEmail">
+        <mat-card>
+          <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="To">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Topic">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Message"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" (click)="sendEmail()">Send</button>
+          </form>
+        </mat-card>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>

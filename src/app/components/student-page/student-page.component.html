@@ -31,11 +31,7 @@
       </div>
     </mat-grid-list>
   </div>
-  
-  <div [hidden]="!viewCourseDetails">
-  <mat-card class = "lectures" *ngFor="let name of selected">{{name}}</mat-card>
-  </div>
-  
+
 <div [hidden]="!viewCourses">
   <div class="scrolling-wrapper">
     <div *ngFor="let element of courses">
@@ -49,6 +45,7 @@
           <mat-card-subtitle>{{element.assistantProfessor}}</mat-card-subtitle>
           <button mat-raised-button color="primary" (click)="seeReview(element)">See Reviews</button>
           <button mat-raised-button color="primary" (click)="leaveReview(element)">Leave Reviews</button>
+          <button mat-raised-button color="primary" (click)="seeDetails(element)">See Details</button>
         </mat-card-content>
         <mat-card-actions>
           <mat-progress-bar mode="determinate" [value]="element.progress"></mat-progress-bar>
@@ -171,4 +168,8 @@
       <input type="file" style="display: none" #file (change)="fileChange($event)"/>
     </mat-form-field>
   </div>
+</div>
+
+<div [hidden]="!viewCourseDetails">
+  <mat-card class = "lectures" *ngFor="let name of selected">{{name}}</mat-card>
 </div>

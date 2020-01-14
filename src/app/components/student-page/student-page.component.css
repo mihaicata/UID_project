@@ -38,12 +38,6 @@ h1 .light {
   font-weight: 100;
 }
 
-.lectures {
-	height:25px;
-	background: rgba(255,255,255,0.7);
-	display:flex;
-}
-
 .announcement {
   width: 600px;
   height: 75px;
@@ -193,4 +187,10 @@ mat-icon {
 
 .chat-list > h4{
   display: inline-flex;
+}
+
+.lectures {
+  height:25px;
+  background: rgba(255,255,255,0.7);
+  display:flex;
 }

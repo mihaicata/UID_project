@@ -19,6 +19,7 @@ export class StudentPageComponent implements OnInit {
   seeFormReview: boolean;
   viewChat: boolean;
   viewChatWindow: boolean;
+  viewCourseDetails: boolean;
   friendName: string;
   messageValue = '';
   file: File;
@@ -41,7 +42,7 @@ export class StudentPageComponent implements OnInit {
   ngOnInit() {
     this.viewAnnouncements = false;
     this.viewCourses = false;
-
+    this.viewCourseDetails = false;
     this.seeFormReview = false;
     this.seeReviews = false;
     this.viewChat = false;
@@ -66,6 +67,7 @@ export class StudentPageComponent implements OnInit {
     this.seeReviews = false;
     this.viewChat = false;
     this.viewChatWindow = false;
+    this.viewCourseDetails = false;
   }
 
   seeAnnouncements() {
@@ -75,6 +77,7 @@ export class StudentPageComponent implements OnInit {
     this.seeReviews = false;
     this.viewChat = false;
     this.viewChatWindow = false;
+    this.viewCourseDetails = false;
   }
 
   sendMessage(chatMessage: boolean, message: string) {
@@ -102,6 +105,7 @@ export class StudentPageComponent implements OnInit {
     this.seeReviews = false;
     this.viewAnnouncements = false;
     this.viewChatWindow = false;
+    this.viewCourseDetails = false;
   }
 
   openSnackBar(message: string) {
@@ -141,6 +145,7 @@ export class StudentPageComponent implements OnInit {
     this.seeFormReview = false;
     this.viewChat = false;
     this.viewChatWindow = false;
+    this.viewCourseDetails = false
   }
 
   leaveReview(element: Course) {
@@ -151,6 +156,18 @@ export class StudentPageComponent implements OnInit {
     this.seeReviews = false;
     this.viewChat = false;
     this.viewChatWindow = false;
+    this.viewCourseDetails = false;
+  }
+
+  seeDetails(element: Course) {
+    this.selected = element.lectures;
+    this.seeFormReview = false;
+    this.viewAnnouncements = false;
+    this.viewCourses = false;
+    this.seeReviews = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
+    this.viewCourseDetails = true;
   }
 
   submitReview() {
