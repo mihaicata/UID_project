@@ -38,6 +38,8 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { HomepageSmartComponent } from './containers/homepage-smart/homepage-smart.component';
 import { StudentPageComponent } from './components/student-page/student-page.component';
 import { StudentPageSmartComponent } from './containers/student-page-smart/student-page-smart.component';
+import { SecretaryPageComponent } from './components/secretary-page/secretary-page.component';
+import { SecretaryPageSmartComponent } from './containers/secretary-page-smart/secretary-page-smart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,8 @@ import { StudentPageSmartComponent } from './containers/student-page-smart/stude
     HomepageSmartComponent,
     StudentPageComponent,
     StudentPageSmartComponent,
+    SecretaryPageComponent,
+    SecretaryPageSmartComponent,
   ],
   imports: [
     FontAwesomeModule,

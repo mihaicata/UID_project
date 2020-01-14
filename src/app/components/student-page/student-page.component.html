@@ -128,3 +128,43 @@
   </mat-card>
 
 </div>
+
+
+<div [hidden]="!viewChat">
+  <div class="chat-friends">
+    <mat-list>
+      <h3 matSubheader>Chat</h3>
+      <mat-list-item *ngFor="let friend of friends">
+        <mat-icon matListIcon>fiber_manual_record</mat-icon>
+        <h3 matLine (click)="seeChatWindow(friend)"> {{friend}}</h3>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>
+
+<div [hidden]="!viewChatWindow">
+  <div class="chat-list">
+
+    <mat-toolbar><mat-icon matListIcon>fiber_manual_record</mat-icon>{{friendName}}</mat-toolbar>>
+    <div class="chat-messages">
+      <mat-list>
+        <mat-list-item *ngFor="let destMessage of destMessages">
+          <p>{{destMessage}}</p>
+        </mat-list-item>
+      </mat-list>
+
+      <mat-list >
+        <mat-list-item *ngFor="let myMessage of myMessages">
+          <p id="myMessagesList"> {{myMessage}}</p>
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <mat-form-field>
+      <input #chatMessage="ngModel" required matInput placeholder="Message" [(ngModel)]="messageValue">
+      <mat-icon (click)="sendMessage(chatMessage.dirty, messageValue)" matSuffix>send</mat-icon>
+      <mat-icon (click)="file.click()" matSuffix>add</mat-icon>
+      <input type="file" style="display: none" #file (change)="fileChange($event)"/>
+    </mat-form-field>
+  </div>
+</div>

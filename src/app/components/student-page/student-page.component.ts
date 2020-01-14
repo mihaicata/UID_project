@@ -17,13 +17,21 @@ export class StudentPageComponent implements OnInit {
   viewAnnouncements: boolean;
   viewCourses: boolean;
   seeFormReview: boolean;
+  viewChat: boolean;
+  viewChatWindow: boolean;
+  friendName: string;
+  messageValue = '';
+  file: File;
   announcements: Announcement[];
   courses: Course[];
   activeCourse: Course;
   liked: number[] = [];
   selected: string[] = [];
+  destMessages: string[] = ['Hello!', 'How are you doing?'];
+  myMessages: string[] = [];
   grades: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   form: FormGroup;
+  friends: string[] = ['Mihai Cata', 'Vlad Petrutiu', 'Moldovan Alexandra', 'Paul Helmer'];
   displayedColumns: string[] = ['lectureTitle', 'professorMark', 'professorReview', 'courseMark', 'courseReview'];
   seeReviews: boolean;
 
@@ -33,8 +41,11 @@ export class StudentPageComponent implements OnInit {
   ngOnInit() {
     this.viewAnnouncements = false;
     this.viewCourses = false;
+
     this.seeFormReview = false;
     this.seeReviews = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
     this.announcements = this.announcementService.initAnnouncements();
     this.courses = this.courseService.initCourses();
     this.form = this.formBuilder.group
@@ -53,6 +64,8 @@ export class StudentPageComponent implements OnInit {
     this.viewAnnouncements = false;
     this.seeFormReview = false;
     this.seeReviews = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
   }
 
   seeAnnouncements() {
@@ -60,10 +73,35 @@ export class StudentPageComponent implements OnInit {
     this.viewCourses = false;
     this.seeFormReview = false;
     this.seeReviews = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
+  }
+
+  sendMessage(chatMessage: boolean, message: string) {
+    if (chatMessage) {
+      this.myMessages.push(message);
+      this.messageValue = '';
+    }
+  }
+
+  seeChatWindow(friendName: string) {
+    this.viewChatWindow = this.viewChatWindow !== true;
+    this.friendName = friendName;
+    console.log(friendName);
+  }
+
+  fileChange(file) {
+    this.file = file.target.files[0];
+    this.messageValue = this.file.name;
   }
 
   seeChat() {
-    console.log('Chat');
+    this.viewChat = this.viewChat !== true;
+    this.viewCourses = false;
+    this.seeFormReview = false;
+    this.seeReviews = false;
+    this.viewAnnouncements = false;
+    this.viewChatWindow = false;
   }
 
   openSnackBar(message: string) {
@@ -101,6 +139,8 @@ export class StudentPageComponent implements OnInit {
     this.viewCourses = false;
     this.viewAnnouncements = false;
     this.seeFormReview = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
   }
 
   leaveReview(element: Course) {
@@ -109,6 +149,8 @@ export class StudentPageComponent implements OnInit {
     this.viewAnnouncements = false;
     this.viewCourses = false;
     this.seeReviews = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
   }
 
   submitReview() {
@@ -121,6 +163,8 @@ export class StudentPageComponent implements OnInit {
     this.openSnackBar('CONGRATS FOR LEAVING A REVIEW!!!');
     this.seeFormReview = false;
     this.viewCourses = true;
+    this.viewChat = false;
+    this.viewChatWindow = false;
 
     // tslint:disable-next-line:prefer-for-of
     for (let i = 0; i < this.courses.length; i++) {
