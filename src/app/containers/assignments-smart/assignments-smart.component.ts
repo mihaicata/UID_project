@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {AssignmentsService} from '../../core/services/assignments.service';
 import {Grade} from '../../core/models/grade';
 import {Student} from '../../student';
+import {ActivityStudent} from '../../core/models/activity-student';
+import {Activity} from '../../core/models/activity';
 
 @Component({
   selector: 'app-assignments-smart',
@@ -35,18 +37,21 @@ export class AssignmentsSmartComponent implements OnInit {
      // let gradedStudent = new Student();
 
     this.assignmentsService.getStudentsForAssignments();
-    const assignments = this.assignmentsService.assignmentsStudentsValue;
-    assignments.filter((student) => student.id === id
+    const assignments: ActivityStudent[] = this.assignmentsService.assignmentsStudentsValue;
+    assignments.filter((activityStudent: ActivityStudent) => activityStudent.student.id === id
     )
-      .map((student: Student) => {
-        const gradedStudent = new Student();
-        gradedStudent.id = student.id;
-        gradedStudent.firstname = student.firstname;
-        gradedStudent.lastname = student.lastname;
-        gradedStudent.group = student.group;
-        gradedStudent.grade = gradeObject;
-        Object.assign(student, gradedStudent);
-        return student;
+      .map((activityStudent: ActivityStudent) => {
+        console.log(activityStudent);
+        const newActivity = new Activity();
+        newActivity.grade = gradeObject;
+        newActivity.name = activityStudent.activity.name;
+        newActivity.fileUrl = activityStudent.activity.fileUrl;
+        const gradedStudent = {
+          ...activityStudent,
+          activity: newActivity
+        };
+        Object.assign(activityStudent, gradedStudent);
+        return activityStudent;
       });
 
   }

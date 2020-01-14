@@ -1,6 +1,6 @@
 export class Grade {
-  activity: string;
-  grade: number;
-  range: string;
-  percentage: number;
+  activity?: string;
+  grade?: number;
+  range?: string;
+  percentage?: number;
 }

@@ -5,12 +5,12 @@ import {HomepageSmartComponent} from './containers/homepage-smart/homepage-smart
 import {StudentPageSmartComponent} from './containers/student-page-smart/student-page-smart.component';
 import {EnrollmentPageSmartComponent} from './containers/enrollment-page-smart/enrollment-page-smart.component';
 import {ActivityGradedSmartComponent} from './containers/activity-graded-smart/activity-graded-smart.component';
-import {TeacherCourseActivitiesComponent} from './components/teacher-course-activities/teacher-course-activities.component';
 import {TeacherCourseActivitiesSmartComponent} from './containers/teacher-course-activities-smart/teacher-course-activities-smart.component';
 import {AssignmentsSmartComponent} from './containers/assignments-smart/assignments-smart.component';
 import {QuizzesSmartComponent} from './containers/quizzes-smart/quizzes-smart.component';
 import {ProjectsSmartComponent} from './containers/projects-smart/projects-smart.component';
 import {ExamsSmartComponent} from './containers/exams-smart/exams-smart.component';
+import {StudentGradesSmartComponent} from './containers/student-grades-smart/student-grades-smart.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -20,9 +20,13 @@ const routes: Routes = [
     children: [
       {
         path: 'enroll',
-        component: ActivityGradedSmartComponent
-        // component: EnrollmentPageSmartComponent
+        component: EnrollmentPageSmartComponent
+      },
+      {
+        path: 'grades',
+        component: StudentGradesSmartComponent
       }
+
     ]},
   {path: 'teacher', component: TeacherCourseActivitiesSmartComponent,
   children: [

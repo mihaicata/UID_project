@@ -1,83 +1,152 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Student} from '../../student';
+import {Activities} from '../enums/activities.enum';
+import {ActivityStudent} from '../models/activity-student';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectsService {
 
-  private projectsStudents$: BehaviorSubject<Student[]> = new BehaviorSubject<Student[]>(null);
+  private projectsStudents$: BehaviorSubject<ActivityStudent[]> = new BehaviorSubject<ActivityStudent[]>(null);
   constructor() { }
 
   getStudentsForProjects() {
 
     const projectsStudents = [
       {
-        id: 0,
-        firstname: 'Paul',
-        lastname: 'Helmer',
-        group: 30441
+        student: {
+          id: 0,
+          firstname: 'Paul',
+          lastname: 'Helmer',
+          group: 30441
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
+
       },
       {
-        id: 1,
-        firstname: 'Vlad',
-        lastname: 'Petrutiu',
-        group: 30444
+        student: {
+          id: 1,
+          firstname: 'Vlad',
+          lastname: 'Petrutiu',
+          group: 30444
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 2,
-        firstname: 'Cata',
-        lastname: 'Mihai',
-        group: 30442
+        student: {
+          id: 2,
+          firstname: 'Cata',
+          lastname: 'Mihai',
+          group: 30442
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 3,
-        firstname: 'Andrei',
-        lastname: 'Brasoveanu',
-        group: 30442
+        student: {
+          id: 3,
+          firstname: 'Andrei',
+          lastname: 'Brasoveanu',
+          group: 30442
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 4,
-        firstname: 'Andreea',
-        lastname: 'Daniel',
-        group: 30443
+        student: {
+          id: 4,
+          firstname: 'Andreea',
+          lastname: 'Daniel',
+          group: 30443
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 5,
-        firstname: 'Alexandra',
-        lastname: 'Moldovan',
-        group: 30443
+        student: {
+          id: 5,
+          firstname: 'Alexandra',
+          lastname: 'Moldovan',
+          group: 30443
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 6,
-        firstname: 'Diana',
-        lastname: 'Lazea',
-        group: 30443
+        student: {
+          id: 6,
+          firstname: 'Diana',
+          lastname: 'Lazea',
+          group: 30443
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 7,
-        firstname: 'Vlad',
-        lastname: 'Buda',
-        group: 30443
+        student: {
+          id: 7,
+          firstname: 'Vlad',
+          lastname: 'Buda',
+          group: 30443
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 8,
-        firstname: 'Cristian',
-        lastname: 'Blaga',
-        group: 30443
+        student: {
+          id: 8,
+          firstname: 'Cristian',
+          lastname: 'Blaga',
+          group: 30443
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 9,
-        firstname: 'Darius',
-        lastname: 'Bogdan',
-        group: 30443
+        student: {
+          id: 9,
+          firstname: 'Darius',
+          lastname: 'Bogdan',
+          group: 30443
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       },
       {
-        id: 10,
-        firstname: 'Andreea',
-        lastname: 'Ghejan',
-        group: 30444
+        student: {
+          id: 10,
+          firstname: 'Andreea',
+          lastname: 'Ghejan',
+          group: 30444
+        },
+        activity: {
+          name: Activities.PROJECT,
+          fileUrl: 'C:\\Users\\Ale\\Desktop\\UID_PROJECT\\UID_project\\src\\assets'
+        }
       }
 
     ];
@@ -85,7 +154,7 @@ export class ProjectsService {
 
   }
 
-  get projectsStudentsValue(): Student[] {
+  get projectsStudentsValue(): ActivityStudent[] {
     return this.projectsStudents$.value;
 
   }

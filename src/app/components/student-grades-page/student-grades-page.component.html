@@ -6,19 +6,19 @@
   <mat-divider></mat-divider>
 
 
-  <app-table class="table" [dataSource]="assignmentsGrades" [firstColumnName]="'Assignments'">
+  <app-table class="table" [dataSource]="getAssignmentsGrades()" [firstColumnName]="'Assignments'">
 
   </app-table>
 
-  <app-table class="table" [dataSource]="quizzesGrades" [firstColumnName]="'Quizzes'">
+  <app-table class="table" [dataSource]="getQuizzesGrades()" [firstColumnName]="'Quizzes'">
 
   </app-table>
 
-  <app-table class="table" [dataSource]="projectGrades" [firstColumnName]="'Projects'">
+  <app-table class="table" [dataSource]="getProjectGrades()" [firstColumnName]="'Projects'">
 
   </app-table>
 
-  <app-table class="table" [dataSource]="examsGrades" [firstColumnName]="'Exams'">
+  <app-table class="table" [dataSource]="getExamsGrades()" [firstColumnName]="'Exams'">
 
   </app-table>
 </mat-card>
