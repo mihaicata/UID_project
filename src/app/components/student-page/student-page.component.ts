@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import {Announcement} from '../../core/models/announcement';
 import {AnnouncementService} from '../../core/services/announcement.service';
-import {MatDialog, MatSnackBar} from '@angular/material';
+import { MatSnackBar} from '@angular/material';
 import {CourseService} from '../../core/services/course.service';
 import {Course} from '../../core/models/course';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Review} from '../../core/models/review';
+import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-student-page',
   templateUrl: './student-page.component.html',
@@ -20,6 +20,8 @@ export class StudentPageComponent implements OnInit {
   viewChat: boolean;
   viewChatWindow: boolean;
   viewCourseDetails: boolean;
+  viewGrades: boolean;
+  viewEnrollment: boolean;
   friendName: string;
   messageValue = '';
   file: File;
@@ -37,11 +39,12 @@ export class StudentPageComponent implements OnInit {
   seeReviews: boolean;
 
   constructor(private announcementService: AnnouncementService, private snackBar: MatSnackBar, private courseService: CourseService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              ) { }
 
   ngOnInit() {
     this.viewAnnouncements = false;
-    this.viewCourses = false;
+    this.viewCourses = true;
     this.viewCourseDetails = false;
     this.seeFormReview = false;
     this.seeReviews = false;
@@ -57,7 +60,8 @@ export class StudentPageComponent implements OnInit {
       lectureGrade: new FormControl( ''),
       lectureReview: new FormControl( '')
     });
-    this.activeCourse = this.courses[0];
+    this.activeCourse = this.courseService.coursesValue[0];
+    console.log(this.activeCourse);
   }
 
   seeCourses() {
@@ -68,6 +72,8 @@ export class StudentPageComponent implements OnInit {
     this.viewChat = false;
     this.viewChatWindow = false;
     this.viewCourseDetails = false;
+    this.viewGrades = false;
+    this.viewEnrollment = false;
   }
 
   seeAnnouncements() {
@@ -78,6 +84,8 @@ export class StudentPageComponent implements OnInit {
     this.viewChat = false;
     this.viewChatWindow = false;
     this.viewCourseDetails = false;
+    this.viewGrades = false;
+    this.viewEnrollment = false;
   }
 
   sendMessage(chatMessage: boolean, message: string) {
@@ -106,6 +114,8 @@ export class StudentPageComponent implements OnInit {
     this.viewAnnouncements = false;
     this.viewChatWindow = false;
     this.viewCourseDetails = false;
+    this.viewGrades = false;
+    this.viewEnrollment = false;
   }
 
   openSnackBar(message: string) {
@@ -137,6 +147,8 @@ export class StudentPageComponent implements OnInit {
   }
 
   seeReview(element: Course) {
+    console.log('element', element);
+    console.log('active course', this.activeCourse);
     this.selected = element.lectures;
     this.activeCourse = element;
     this.seeReviews = true;
@@ -145,7 +157,9 @@ export class StudentPageComponent implements OnInit {
     this.seeFormReview = false;
     this.viewChat = false;
     this.viewChatWindow = false;
-    this.viewCourseDetails = false
+    this.viewCourseDetails = false;
+    this.viewGrades = false;
+    this.viewEnrollment = false;
   }
 
   leaveReview(element: Course) {
@@ -157,6 +171,8 @@ export class StudentPageComponent implements OnInit {
     this.viewChat = false;
     this.viewChatWindow = false;
     this.viewCourseDetails = false;
+    this.viewGrades = false;
+    this.viewEnrollment = false;
   }
 
   seeDetails(element: Course) {
@@ -168,6 +184,8 @@ export class StudentPageComponent implements OnInit {
     this.viewChat = false;
     this.viewChatWindow = false;
     this.viewCourseDetails = true;
+    this.viewGrades = false;
+    this.viewEnrollment = false;
   }
 
   submitReview() {
@@ -183,14 +201,54 @@ export class StudentPageComponent implements OnInit {
     this.viewChat = false;
     this.viewChatWindow = false;
 
+
+    const course = this.activeCourse;
+    const reviews = [course.reviews, localReview];
+    course.reviews.push(localReview);
+    console.log('when submit', course);
+
+    this.courseService.setCourses(course);
+    this.activeCourse = this.courseService.coursesValue[0];
+    this.courses = this.courseService.coursesValue;
+    console.log(this.courseService.coursesValue);
+    // this.activeCourse = this.courseService.coursesValue[0];
     // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < this.courses.length; i++) {
-      // tslint:disable-next-line:prefer-for-of
-      for (let j = 0; j < this.courses[i].lectures.length; j++) {
-        if (this.courses[i].lectures[j] === localReview.title) {
-          this.courses[i].reviews.push(localReview);
-        }
-      }
-    }
+    // for (let i = 0; i < this.courses.length; i++) {
+    //   // tslint:disable-next-line:prefer-for-of
+    //   for (let j = 0; j < this.courses[i].lectures.length; j++) {
+    //     if (this.courses[i].lectures[j] === localReview.title) {
+    //       this.courses[i].reviews.push(localReview);
+    //     }
+    //   }
+    // }
+  }
+  onSeeGrades(nameCourse: string) {
+    // this.selected = null;
+    this.seeFormReview = false;
+    this.viewAnnouncements = false;
+    this.viewCourses = false;
+    this.seeReviews = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
+    this.viewCourseDetails = false;
+    this.viewGrades = true;
+    this.viewEnrollment = false;
+    // this.router.navigate(['grades'], {relativeTo: this.route});
+  }
+
+  onEnroll(nameCourse: string) {
+    // this.selected = null;
+    this.seeFormReview = false;
+    this.viewAnnouncements = false;
+    this.viewCourses = false;
+    this.seeReviews = false;
+    this.viewChat = false;
+    this.viewChatWindow = false;
+    this.viewCourseDetails = false;
+    this.viewGrades = false;
+    this.viewEnrollment = true;
+
+    // this.router.navigate(['enroll'], {relativeTo: this.route});
+
   }
 }

@@ -61,6 +61,8 @@ import { ProjectsPageComponent } from './components/projects-page/projects-page.
 import { ExamsPageComponent } from './components/exams-page/exams-page.component';
 import { GradedActivitiesComponent } from './components/graded-activities/graded-activities.component';
 import { StudentsActivitiesTableComponent } from './components/students-activities-table/students-activities-table.component';
+import { StudentCoursesSmartComponent } from './containers/student-courses-smart/student-courses-smart.component';
+import { StudentCoursesPageComponent } from './components/student-courses-page/student-courses-page.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,9 @@ import { StudentsActivitiesTableComponent } from './components/students-activiti
     ProjectsPageComponent,
     ExamsPageComponent,
     GradedActivitiesComponent,
-    StudentsActivitiesTableComponent
+    StudentsActivitiesTableComponent,
+    StudentCoursesSmartComponent,
+    StudentCoursesPageComponent
   ],
   imports: [
     FontAwesomeModule,

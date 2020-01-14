@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-teacher-page',
@@ -9,7 +10,7 @@ import {MatTableDataSource} from '@angular/material';
 export class TeacherPageComponent implements OnInit {
 
   displayedColumns: string[] = ['announcements'];
-  messages: string[] = [];
+  messages: BehaviorSubject<string[]> = new BehaviorSubject<string[]>(['Google AI Course']);
   body: string;
   title: string;
   srcResult;
@@ -21,8 +22,6 @@ export class TeacherPageComponent implements OnInit {
   private selected: ({ name: string; topic: string } | { name: string; topic: string })[];
 
   constructor() {
-    this.messages.push('Google AI Course');
-
   }
 
   ngOnInit() {
@@ -33,14 +32,15 @@ export class TeacherPageComponent implements OnInit {
   }
 
   public showTable() {
-    if (this.title !== null) {
-      this.messages.push(this.title);
-    }
+    const currentValue = this.messages.getValue();
+    const updatedValue = [...currentValue, this.title];
+    this.messages.next(updatedValue);
   }
 
   seeEmails() {
     this.viewEmails = this.viewEmails !== true;
     this.selected = this.emails;
+    this.viewUploadLectures = false;
   }
 
   composeEmail() {
@@ -48,7 +48,7 @@ export class TeacherPageComponent implements OnInit {
   }
 
   refresh() {
-    this.dataSource.data = this.messages;
+    this.dataSource.data = this.messages.value;
 
   }
   onFileSelected() {
@@ -67,6 +67,7 @@ export class TeacherPageComponent implements OnInit {
 
   uploadLectures() {
     this.viewUploadLectures = this.viewUploadLectures !== true;
+    this.viewEmails = false;
   }
 
   sendEmail() {

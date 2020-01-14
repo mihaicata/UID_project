@@ -2,12 +2,15 @@ import { Injectable } from '@angular/core';
 import {Announcement} from '../models/announcement';
 import {Course} from '../models/course';
 import {LecturesService} from './lectures.service';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
+
+  private courses: BehaviorSubject<Course[]> = new BehaviorSubject<Course[]>(null);
   constructor(private lecturesService: LecturesService) { }
 
   initCourses() {
@@ -35,6 +38,23 @@ export class CourseService {
     course2.lectures = lectures;
     courses.push(course1);
     courses.push(course2);
+    this.courses.next(courses);
+
+    console.log('service', courses);
     return courses;
+  }
+
+  setCourses(course: Course) {
+    const courses = this.courses.value;
+    courses.filter((c: Course) => c.title === course.title)
+      .map((c: Course) => Object.assign(c, course)
+  )
+
+    console.log(courses);
+    this.courses.next(courses);
+  }
+
+  get coursesValue() {
+   return this.courses.value;
   }
 }
