@@ -13,6 +13,8 @@ export class LoginService {
       return 'Student';
     } else if (username === 'secretary' && password === 'password') {
       return 'Secretary';
+    } else if (username === 'teacher' && password === 'password') {
+      return 'Teacher';
     } else {
       return null;
     }

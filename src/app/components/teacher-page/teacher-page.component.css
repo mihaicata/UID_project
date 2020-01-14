@@ -1,6 +1,53 @@
+/* label{
+    color:white;
+}
+#form{
+    width:300px;
+}
+#message{
+    width:258px;
+    height:130px;
+}
+#div1{
+    display: inline-block;
+    margin-left:140px;
+}
+#div2{
+    display: inline-block;
+    margin:20px;
+    padding:0;
+    display:block;
+    float:left;
+    position:relative;
+} */
+/*
+p{
+    color:white;
+}
+#p1{
+    display: inline-block;
+}
+select{
+    display: inline-block;
+    margin-left:10px;
+}
+button{
+    margin-left:100px;
+}
+html,body{
+    background-color: #343A40;
+    margin: 0;
+    width: 100%;
+
+}
+container{
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+*/
 /* styles.css */
-
-
 
 html, body, app-root {
   width: 100%;
@@ -94,91 +141,41 @@ mat-icon {
   left: 0;
 }
 
-.chat-friends{
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: white;
+.likes {
+  position: relative;
+  bottom: -81px;
+  right: 202px;
+  font-weight: bold;
 }
 
-
-.chat-list{
-  display: inline-block;
-  flex-direction: column;
-  position: absolute;
-  bottom: 0%;
-  left: 73.4%;
-  margin-right: -50%;
-  background-color: white;
-  overflow: auto;
+.example-card {
+  max-width: 300px;
 }
 
-.chat-messages{
-  height: 200px;
-  max-height: 200px;
-  overflow-y: scroll;
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
 }
 
-#myMessagesList{
-  color: red;
+.scrolling-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  justify-content: space-evenly;
+  margin-top: 10%;
 }
 
-.chat-list > h4{
-  display: inline-flex;
+.scrolling-wrapper.example-card {
+  flex: 0 0 auto;
 }
 
-.announcement-container {
-  display: inline-block;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 30%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  overflow: auto;
-
-}
-
-.announcement-selection{
-  margin: 1em;
-  display: inline-block;
-}
-
-.announcement-selection > mat-form-field{
-  margin: 1em;
-}
-
-.announcement-text{
-  margin: 1em;
+.example-container {
   display: flex;
   flex-direction: column;
 }
 
-.announcement-text > mat-form-field{
-  margin: 1em;
-}
-
-.announcement-button{
-  display: inline-block;
-  float: right;
-}
-
-.announcement-button > button{
-  margin: 1em;
-}
-
-.announcement-list{
-  display: inline-block;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 70%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  overflow: auto;
-  padding: 1em;
+.example-container > * {
+  width: 100%;
 }
 
 .review {
@@ -216,7 +213,7 @@ mat-icon {
   position: relative;
 }
 .review{
-  top:250px;
+  top:100px;
 
 }
 
@@ -239,9 +236,14 @@ mat-icon {
 
   transition: background-color .3s;
 }
+#buton{
+  margin-top:10px;
+}
+#div3{
+  margin-left:50px;
+}
 
-/*-----------------------PAUL-----------------------*/
-
+/*----------------------------PAUL---------------*/
 .emails {
   height:25px;
   width: 100%;

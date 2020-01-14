@@ -32,6 +32,8 @@ export class LoginFormComponent implements OnInit {
       this.router.navigateByUrl(role);
     } else if (role === 'Secretary') {
       this.router.navigateByUrl(role);
+    } else if (role === 'Teacher') {
+      this.router.navigateByUrl(role);
     }
       // localStorage.setItem('user', JSON.stringify(users));
       // console.log(localStorage.getItem('user'));
