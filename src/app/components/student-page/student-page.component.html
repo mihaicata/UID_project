@@ -31,7 +31,11 @@
       </div>
     </mat-grid-list>
   </div>
-
+  
+  <div [hidden]="!viewCourseDetails">
+  <mat-card class = "lectures" *ngFor="let name of selected">{{name}}</mat-card>
+  </div>
+  
 <div [hidden]="!viewCourses">
   <div class="scrolling-wrapper">
     <div *ngFor="let element of courses">
