@@ -1,0 +1,78 @@
+.card {
+  margin: 32px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.label {
+  padding: 10px;
+  font-family: SansSerif ;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1c2c58;
+}
+
+.activity-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+
+}
+
+.std {
+  font-weight: bold;
+  font-family: SansSerif;
+  font-size: 18px;
+}
+
+.student-info {
+  padding: 8px;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+
+  font-weight: normal;
+  font-family: SansSerif;
+  font-size: 16px;
+
+}
+
+.activity {
+  width:50%;
+}
+
+.student-material {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+}
+.download_file{
+
+}
+
+.post-grade {
+  width: 50%;
+  padding: 32px 16px 16px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+
+}
+
+
+.grade-input{
+  width:30%;
+  display: flex;
+  border-radius: 8px;
+  padding-right: 48px;
+}
+

@@ -1,0 +1,50 @@
+<mat-card class="card">
+  <div class="label">
+    {{courseName}} - {{titleActivity}}
+  </div>
+
+  <div>
+    <mat-divider></mat-divider>
+  </div>
+
+  <div class="activity-content">
+
+    <div class="student-info" >
+      <span class="std">{{'Student: '}}</span>  {{ studentName}}  {{studentGroup}}
+    </div>
+
+    <div class="student-material">
+      <mat-card class="activity">
+        <div>
+          {{activityTitle}}
+        </div>
+      </mat-card>
+    <button class="download_file" mat-icon-button>
+      <mat-icon>cloud_download</mat-icon></button>
+
+    </div>
+
+
+    <div class="post-grade">
+      <mat-form-field class="grade-input" appearance="outline">
+        <input matInput [formControl]="control">
+        <mat-error *ngIf = "control.hasError('required')">
+          You must enter a grade
+        </mat-error>
+        <mat-error *ngIf = "control.hasError('min')">
+          You must enter a grade bigger than 0
+        </mat-error>
+        <mat-error *ngIf = "control.hasError('max')">
+          You must enter a grade lower than 10
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button (click)="onAssignGrade()">
+        Assign Grade
+      </button>
+
+    </div>
+
+
+  </div>
+</mat-card>

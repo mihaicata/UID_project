@@ -1,0 +1,6 @@
+<app-graded-activities [title]="'Assignments'"
+                       [dataSource]="dataSource"
+                       [buttonName]="'View Assignments'"
+                       (view)="onView($event)"
+                       (postGrade)="onPostGrade($event)"
+></app-graded-activities>

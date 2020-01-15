@@ -1,0 +1,57 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Questions Before Enrollment </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="group">
+    <div class="question-answer">
+      <div class="question"> 1.What are your expectations from this course? </div>
+      <mat-form-field class="answer" appearance="outline">
+        <input matInput [formControl]="firstAnswerControl">
+        <mat-error *ngIf="firstAnswerControl.hasError('required')">
+          Answer is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="question-answer">
+      <div class="question"> 2. What do you know about this domain? </div>
+      <mat-form-field class="answer" appearance="outline">
+        <input matInput [formControl]="secondAnswerControl">
+        <mat-error *ngIf="secondAnswerControl.hasError('required')">
+          Answer is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="question-answer">
+      <div class="question"> 3. What opinion do you have regarding weekly laboratory quizzes? </div>
+      <mat-form-field class="answer" appearance="outline">
+        <input matInput [formControl]="thirdAnswerControl">
+        <mat-error *ngIf="thirdAnswerControl.hasError('required')">
+          Answer is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div class="enrollment-side">
+      <div class="enroll-course-title">Enroll in {{title}} course</div>
+      <div class="enrollment-key">
+        <div class="enrollment-key-text">Enter enrollment key</div>
+        <mat-form-field class="answer">
+          <input matInput [formControl]="enrollmentKeyControl">
+          <mat-error *ngIf="enrollmentKeyControl.hasError('required')">
+            Enrollment key is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="button-wrapper">
+      <button mat-raised-button [disabled]="!group.valid" (click)="onSubmit()">SUBMIT</button>
+    </div>
+
+  </form>
+
+
+</mat-card>

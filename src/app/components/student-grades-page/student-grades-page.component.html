@@ -1,0 +1,24 @@
+<mat-card class="card">
+  <div class="title">
+    {{title}} {{'Grades'}}
+  </div>
+
+  <mat-divider></mat-divider>
+
+
+  <app-table class="table" [dataSource]="getAssignmentsGrades()" [firstColumnName]="'Assignments'">
+
+  </app-table>
+
+  <app-table class="table" [dataSource]="getQuizzesGrades()" [firstColumnName]="'Quizzes'">
+
+  </app-table>
+
+  <app-table class="table" [dataSource]="getProjectGrades()" [firstColumnName]="'Projects'">
+
+  </app-table>
+
+  <app-table class="table" [dataSource]="getExamsGrades()" [firstColumnName]="'Exams'">
+
+  </app-table>
+</mat-card>
