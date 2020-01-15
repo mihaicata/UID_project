@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ActivatedRoute, Router} from '@angular/router';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {Grade} from '../../core/models/grade';
 import {Student} from '../../student';
 import {ProjectsService} from '../../core/services/projects.service';
@@ -16,11 +16,15 @@ export class ProjectsSmartComponent implements OnInit {
 
   @Output() postGrade = new EventEmitter<{id: number, grade: number}>();
 
+  navigationSubscription;
+
+
   constructor(private router: Router,
               private route: ActivatedRoute,
               private projectsService: ProjectsService) { }
 
   ngOnInit() {
+
   }
 
   onView(idStudent: number) {
@@ -50,6 +54,10 @@ export class ProjectsSmartComponent implements OnInit {
       Object.assign(activityStudent, gradedStudent);
       return activityStudent;
     });
+    this.router.navigate(['..'], {relativeTo: this.route});
+
   }
+
+
 
 }

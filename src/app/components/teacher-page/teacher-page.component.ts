@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
 import {BehaviorSubject} from 'rxjs';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-teacher-page',
@@ -22,7 +23,7 @@ export class TeacherPageComponent implements OnInit {
   emails = [{name: 'Potolea Rodica', topic: 'Department meeting at 16'}, {name: 'Fried Johanna', topic: 'Student complaints'}];
   private selected: ({ name: string; topic: string } | { name: string; topic: string })[];
 
-  constructor() {
+  constructor(private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -39,9 +40,12 @@ export class TeacherPageComponent implements OnInit {
   }
 
   seeEmails() {
+    this.router.navigate(['Teacher']);
+
     this.viewEmails = this.viewEmails !== true;
     this.selected = this.emails;
     this.viewUploadLectures = false;
+    this.viewAssignments = false;
   }
 
   composeEmail() {
@@ -67,8 +71,11 @@ export class TeacherPageComponent implements OnInit {
   }
 
   uploadLectures() {
+    this.router.navigate(['Teacher']);
     this.viewUploadLectures = this.viewUploadLectures !== true;
     this.viewEmails = false;
+    this.viewAssignments = false;
+    console.log(this.viewAssignments);
   }
 
   sendEmail() {
@@ -77,6 +84,7 @@ export class TeacherPageComponent implements OnInit {
     this.viewUploadLectures = false;
     this.viewEmails = false;
     this.viewAssignments = true;
-    console.log(this.viewAssignments)
+    this.router.navigate(['activities'], {relativeTo: this.route})
+    console.log(this.viewAssignments);
   }
 }

@@ -32,38 +32,39 @@ const routes: Routes = [
 
     ]
   },
-  {path: 'Teacher', component: TeacherPageSmartComponent},
-  {path: 'Teacher/activities', component: TeacherCourseActivitiesSmartComponent,
-  children: [
-    {
-      path: '', redirectTo: 'assignments', pathMatch: 'full'
-    },
-    {
-      path: 'assignments', component: AssignmentsSmartComponent
-    },
-    {
-      path: 'quizzes', component: QuizzesSmartComponent
-    },
-    {
-      path: 'projects', component: ProjectsSmartComponent
-    },
-    {
-      path: 'exams', component: ExamsSmartComponent
-    },
-    {
-      path: 'assignments/students/:idStudent', component: ActivityGradedSmartComponent
-    },
-    {
-      path: 'quizzes/students/:idStudent', component: ActivityGradedSmartComponent
-    },
-    {
-      path: 'projects/students/:idStudent', component: ActivityGradedSmartComponent
-    },
-    {
-      path: 'exams/students/:idStudent', component: ActivityGradedSmartComponent
-    }
+  {path: 'Teacher', component: TeacherPageSmartComponent,
+    children: [{path: 'activities', component: TeacherCourseActivitiesSmartComponent,
+      children: [
+        {
+          path: 'assignments', component: AssignmentsSmartComponent
+        },
+        {
+          path: 'quizzes', component: QuizzesSmartComponent
+        },
+        {
+          path: 'projects', component: ProjectsSmartComponent
+        },
+        {
+          path: 'exams', component: ExamsSmartComponent
+        },
+        {
+          path: 'assignments/students/:idStudent', component: ActivityGradedSmartComponent
+        },
+        {
+          path: 'quizzes/students/:idStudent', component: ActivityGradedSmartComponent
+        },
+        {
+          path: 'projects/students/:idStudent', component: ActivityGradedSmartComponent
+        },
+        {
+          path: 'exams/students/:idStudent', component: ActivityGradedSmartComponent
+        }
 
-  ]}
+      ]
+  }
+      ]
+  },
+
 ];
 
 @NgModule({

@@ -53,6 +53,8 @@ export class AssignmentsSmartComponent implements OnInit {
         Object.assign(activityStudent, gradedStudent);
         return activityStudent;
       });
+    this.router.navigate(['..'], {relativeTo: this.route});
+
 
   }
 }

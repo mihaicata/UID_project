@@ -20,20 +20,20 @@ export class TeacherCourseActivitiesComponent implements OnInit {
 
       {
         label: 'Assignments',
-        link: 'activities/assignments',
+        link: 'assignments',
         index: 0
       }, {
         label: 'Quizzes',
-        link: 'activities/quizzes',
+        link: 'quizzes',
         index: 1
       }, {
         label: 'Projects',
-        link: 'activities/projects',
+        link: 'projects',
         index: 2
       },
       {
         label: 'Exams',
-        link: 'activities/exams',
+        link: 'exams',
         index: 3
       }
     ];
