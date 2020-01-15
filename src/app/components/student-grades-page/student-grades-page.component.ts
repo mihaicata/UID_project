@@ -35,101 +35,107 @@ export class StudentGradesPageComponent implements OnInit {
   }
 
   getAssignmentsGrades(): Grade[] {
-    console.log(this.studentId);
-    const studentAssignments: ActivityStudent[] = this.assignmentsService.assignmentsStudentsValue
-      .filter((activityStudent: ActivityStudent) =>this.studentId === activityStudent.student.id && activityStudent.activity.name === Activities.ASSIGNMENT)
-        .map((activityStudent) => {
-        const grade = new Grade();
-        grade.activity = activityStudent.activity.name;
-        const newActivity: Activity = new Activity();
-        newActivity.grade = grade;
-        newActivity.name = activityStudent.activity.name;
-        newActivity.fileUrl = activityStudent.activity.fileUrl;
-        const newActivityStudent: ActivityStudent = {
-          ...activityStudent,
-          activity: newActivity
-        };
-        Object.assign(activityStudent, newActivityStudent);
-        return activityStudent;
-      })
-    ;
-
-    const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
-    console.log(grades);
-    return grades;
+    // console.log(this.studentId);
+    // const studentAssignments: ActivityStudent[] = this.assignmentsService.assignmentsStudentsValue
+    //   .filter((activityStudent: ActivityStudent) =>this.studentId === activityStudent.student.id && activityStudent.activity.name === Activities.ASSIGNMENT)
+    //     .map((activityStudent) => {
+    //     const grade = new Grade();
+    //     grade.activity = activityStudent.activity.name;
+    //     const newActivity: Activity = new Activity();
+    //     newActivity.grade = grade;
+    //     newActivity.name = activityStudent.activity.name;
+    //     newActivity.fileUrl = activityStudent.activity.fileUrl;
+    //     const newActivityStudent: ActivityStudent = {
+    //       ...activityStudent,
+    //       activity: newActivity
+    //     };
+    //     Object.assign(activityStudent, newActivityStudent);
+    //     return activityStudent;
+    //   })
+    // ;
+    //
+    // const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
+    // console.log(grades);
+    // return grades;
+    return this.gradesUIDService.assignmentsGrades;
   }
 
   getQuizzesGrades(): Grade[] {
-    const studentAssignments: ActivityStudent[] = this.quizzesService.quizzesStudentsValue
-      .filter((activityStudent: ActivityStudent) => this.studentId === activityStudent.student.id && activityStudent.activity.name === Activities.QUIZ)
-      .map((activityStudent) => {
-        const grade = new Grade();
-        grade.activity = activityStudent.activity.name;
-        const newActivity: Activity = new Activity();
-        newActivity.grade = grade;
-        newActivity.name = activityStudent.activity.name;
-        newActivity.fileUrl = activityStudent.activity.fileUrl;
-        const newActivityStudent: ActivityStudent = {
-          ...activityStudent,
-          activity: newActivity
-        };
-        Object.assign(activityStudent, newActivityStudent);
-        return activityStudent;
-      })
-    ;
-
-    const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
-    console.log(grades);
-    return grades;
+    // const studentAssignments: ActivityStudent[] = this.quizzesService.quizzesStudentsValue
+    //   .filter((activityStudent: ActivityStudent) => this.studentId === activityStudent.student.id && activityStudent.activity.name === Activities.QUIZ)
+    //   .map((activityStudent) => {
+    //     const grade = new Grade();
+    //     grade.activity = activityStudent.activity.name;
+    //     const newActivity: Activity = new Activity();
+    //     newActivity.grade = grade;
+    //     newActivity.name = activityStudent.activity.name;
+    //     newActivity.fileUrl = activityStudent.activity.fileUrl;
+    //     const newActivityStudent: ActivityStudent = {
+    //       ...activityStudent,
+    //       activity: newActivity
+    //     };
+    //     Object.assign(activityStudent, newActivityStudent);
+    //     return activityStudent;
+    //   })
+    // ;
+    //
+    // const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
+    // console.log(grades);
+    // return grades;
+    return this.gradesUIDService.quizzesGrades
   }
 
   getProjectGrades(): Grade[] {
-    const studentAssignments: ActivityStudent[] = this.projectsService.projectsStudentsValue
-      .filter((activityStudent: ActivityStudent) => this.studentId === activityStudent.student.id && activityStudent.activity.name === Activities.PROJECT)
-      .map((activityStudent) => {
-        const grade = new Grade();
-        grade.activity = activityStudent.activity.name;
-        const newActivity: Activity = new Activity();
-        newActivity.grade = grade;
-        newActivity.name = activityStudent.activity.name;
-        newActivity.fileUrl = activityStudent.activity.fileUrl;
-        const newActivityStudent: ActivityStudent = {
-          ...activityStudent,
-          activity: newActivity
-        };
-        Object.assign(activityStudent, newActivityStudent);
-        return activityStudent;
-      })
-    ;
-
-    const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
-    console.log(grades);
-    return grades;
+    // const studentAssignments: ActivityStudent[] = this.projectsService.projectsStudentsValue
+    //   .filter((activityStudent: ActivityStudent) => this.studentId === activityStudent.student.id && activityStudent.activity.name === Activities.PROJECT)
+    //   .map((activityStudent) => {
+    //     const grade = new Grade();
+    //     grade.activity = activityStudent.activity.name;
+    //     const newActivity: Activity = new Activity();
+    //     newActivity.grade = grade;
+    //     newActivity.name = activityStudent.activity.name;
+    //     newActivity.fileUrl = activityStudent.activity.fileUrl;
+    //     const newActivityStudent: ActivityStudent = {
+    //       ...activityStudent,
+    //       activity: newActivity
+    //     };
+    //     Object.assign(activityStudent, newActivityStudent);
+    //     return activityStudent;
+    //   })
+    // ;
+    //
+    // const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
+    // console.log(grades);
+    // return grades;
+    return this.gradesUIDService.projectGrades;
   }
 
   getExamsGrades(): Grade[] {
-    const studentAssignments: ActivityStudent[] = this.examsService.examsStudentsValue
-      .filter((activityStudent: ActivityStudent) => activityStudent.student.id === this.studentId && activityStudent.activity.name === Activities.EXAM)
-      .map((activityStudent) => {
-        const grade = new Grade();
-        grade.activity = activityStudent.activity.name;
-        const newActivity: Activity = new Activity();
-        newActivity.grade = grade;
-        newActivity.name = activityStudent.activity.name;
-        newActivity.fileUrl = activityStudent.activity.fileUrl;
-        const newActivityStudent: ActivityStudent = {
-          ...activityStudent,
-          activity: newActivity
-        };
-        Object.assign(activityStudent, newActivityStudent);
-        return activityStudent;
-      })
-    ;
-
-    const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
-    console.log(grades);
-    return grades;
+    // const studentAssignments: ActivityStudent[] = this.examsService.examsStudentsValue
+    //   .filter((activityStudent: ActivityStudent) => activityStudent.student.id === this.studentId && activityStudent.activity.name === Activities.EXAM)
+    //   .map((activityStudent) => {
+    //     const grade = new Grade();
+    //     grade.activity = activityStudent.activity.name;
+    //     const newActivity: Activity = new Activity();
+    //     newActivity.grade = grade;
+    //     newActivity.name = activityStudent.activity.name;
+    //     newActivity.fileUrl = activityStudent.activity.fileUrl;
+    //     const newActivityStudent: ActivityStudent = {
+    //       ...activityStudent,
+    //       activity: newActivity
+    //     };
+    //     Object.assign(activityStudent, newActivityStudent);
+    //     return activityStudent;
+    //   })
+    // ;
+    //
+    // const grades: Grade[] = studentAssignments.map((studentActivity: ActivityStudent) => studentActivity.activity.grade);
+    // console.log(grades);
+    // return grades;
+    return this.gradesUIDService.examsGrades;
   }
+
+
 
 
 }

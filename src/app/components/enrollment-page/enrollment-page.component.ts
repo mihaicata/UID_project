@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {ActivatedRoute, Router} from '@angular/router';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-enrollment-page',
@@ -11,7 +13,7 @@ export class EnrollmentPageComponent implements OnInit {
 
   title: string;
   group: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private route: ActivatedRoute, private SnackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.title = 'Operating System';
@@ -39,5 +41,22 @@ export class EnrollmentPageComponent implements OnInit {
 
   get enrollmentKeyControl(): FormControl {
     return this.group.get('enrollmentKey') as FormControl;
+  }
+
+  onSubmit() {
+
+    console.log(+this.enrollmentKeyControl.value === 1245);
+    if (+this.enrollmentKeyControl.value === 1245) {
+      this.SnackBar.open('You are enrolled', 'Close', {
+        duration: 2000
+      });
+      this.router.navigate(['..', 'Student'], {relativeTo: this.route});
+
+    } else{
+      this.SnackBar.open('Key is incorrect', 'Close', {
+        duration: 2000
+      });
+    }
+
   }
 }

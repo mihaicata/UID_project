@@ -10,3 +10,9 @@
   font-size: 32px;
   font-weight: bold;
 }
+
+
+.card {
+  margin: 32px;
+  opacity: 0.8;
+}

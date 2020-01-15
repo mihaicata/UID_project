@@ -24,7 +24,7 @@ export class QuizzesSmartComponent implements OnInit {
   }
 
   onView(idStudent: number) {
-    this.router.navigate([`students`, idStudent], {relativeTo: this.route} );
+    // this.router.navigate([`students`, idStudent], {relativeTo: this.route} );
   }
 
   onPostGrade({id, grade}: {id: number, grade: number}) {

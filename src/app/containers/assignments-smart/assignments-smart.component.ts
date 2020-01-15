@@ -24,8 +24,10 @@ export class AssignmentsSmartComponent implements OnInit {
   }
 
   onView(idStudent: number) {
-    this.router.navigate([`students`, idStudent], {relativeTo: this.route} );
+    // this.router.navigate([`students`, idStudent], {relativeTo: this.route} );
   }
+
+
 
   onPostGrade({id, grade}: {id: number, grade: number}) {
     const gradeObject = new Grade();
@@ -33,7 +35,7 @@ export class AssignmentsSmartComponent implements OnInit {
     gradeObject.percentage = grade * 0.1;
     gradeObject.activity = 'Assignment';
     gradeObject.range = '0 - 10';
-
+    console.log(gradeObject);
      // let gradedStudent = new Student();
 
     this.assignmentsService.getStudentsForAssignments();
@@ -46,10 +48,12 @@ export class AssignmentsSmartComponent implements OnInit {
         newActivity.grade = gradeObject;
         newActivity.name = activityStudent.activity.name;
         newActivity.fileUrl = activityStudent.activity.fileUrl;
+        console.log(newActivity)
         const gradedStudent = {
           ...activityStudent,
           activity: newActivity
         };
+        // console.log()
         Object.assign(activityStudent, gradedStudent);
         return activityStudent;
       });
