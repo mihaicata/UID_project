@@ -147,7 +147,7 @@ export class StudentPageComponent implements OnInit {
 
   seeReview(element: Course) {
     console.log('element', element);
-    console.log('active course', this.activeCourse);
+    console.log('active course', this.activeCourse.reviews);
     this.selected = element.lectures;
     this.activeCourse = element;
     this.seeReviews = true;

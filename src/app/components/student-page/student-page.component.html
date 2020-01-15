@@ -117,7 +117,6 @@
 
 <div [hidden]="!seeReviews">
   <mat-card class="table">
-    {{activeCourse.reviews}}
     <mat-table [dataSource]="activeCourse.reviews" >
 
       <ng-container matColumnDef="lectureTitle">
